@@ -5,26 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MRR Music - Bot Muzyczny na Discorda</title>
     <style>
+        /* Reset podstawowych stylów */
         body {
             background-color: #0d0d0d;
             color: #ffffff;
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
+
+        /* Sekcja banera */
         header {
             width: 100%;
-            max-height: 300px;
+            max-height: 250px; /* Nieco mniejsza wysokość */
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         header img {
             width: 100%;
-            height: auto;
-            object-fit: cover;
+            height: 100%;
+            object-fit: cover; /* Obraz wypełnia obszar bez zniekształceń */
+            object-position: center;
         }
+
+        /* Główna zawartość */
         .container {
             flex: 1;
             display: flex;
@@ -32,65 +42,95 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
         }
+
+        /* Logo bota */
         .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%; /* Okrągłe logo */
             object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid #ff5500;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Delikatny cień */
         }
+
+        /* Tytuł */
         h1 {
             font-size: 2.5rem;
-            margin-bottom: 10px;
+            margin: 0 0 15px 0;
             color: #ff5500;
+            font-weight: 800;
         }
+
+        /* Opis */
         p {
             font-size: 1.1rem;
-            color: #a0a0a0;
-            max-width: 600px;
-            margin-bottom: 30px;
+            color: #cccccc; /* Jaśniejszy szary dla lepszej czytelności */
+            max-width: 550px;
+            margin: 0 0 35px 0;
+            line-height: 1.5;
         }
+
+        /* Przycisk zaproszenia */
         .btn {
             background-color: #ff5500;
             color: white;
-            padding: 12px 30px;
+            padding: 14px 32px;
             font-size: 1rem;
-            font-weight: bold;
+            font-weight: 600;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
+            border-radius: 50px; /* Zaokrąglony przycisk */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 85, 0, 0.3);
         }
         .btn:hover {
             background-color: #e04a00;
+            transform: translateY(-2px); /* Delikatny efekt uniesienia */
+            box-shadow: 0 6px 15px rgba(255, 85, 0, 0.4);
         }
+
+        /* Stopka - teraz bardzo dyskretna */
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #141414;
-            color: #777;
-            font-size: 0.9rem;
+            padding: 30px 20px;
+            background-color: #121212; /* Nieco jaśniejsze tło stopki */
+            color: #888888; /* Ciemniejszy szary dla tekstu */
+            font-size: 0.85rem;
+            border-top: 1px solid #1a1a1a;
         }
-        footer a {
-            color: #ff5500;
-            margin: 0 10px;
+        .footer-links {
+            margin-top: 12px;
+        }
+        .footer-links a {
+            color: #aaaaaa; /* Jasnoszare odnośniki */
+            margin: 0 15px;
             text-decoration: none;
+            transition: color 0.2s ease;
         }
-        footer a:hover {
-            text-decoration: underline;
+        .footer-links a:hover {
+            color: #ff5500; /* Pomarańczowy tylko po najechaniu */
+            text-decoration: none; /* Bez podkreślenia */
+        }
+
+        /* Responsywność dla małych ekranów */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            p { font-size: 1rem; }
+            header { max-height: 150px; }
+            .logo { width: 90px; height: 90px; }
+            .footer-links a { display: block; margin: 8px 0; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="baner.png" alt="Baner MRR Music">
+        <img src="baner.png" alt="Baner MRR Music Bot" loading="lazy">
     </header>
 
     <div class="container">
-        <img src="logo.png" alt="Logo MRR Music" class="logo">
+        <img src="logo.png" alt="Logo MRR Music" class="logo" loading="lazy">
         <h1>MRR Music</h1>
         <p>Najlepszy bot muzyczny dla Twojego serwera Discord. Płynne odtwarzanie, wysoka jakość dźwięku i łatwa obsługa w jednym miejscu.</p>
         <a href="https://discord.com/oauth2/authorize?client_id=TOWOJ_CLIENT_ID" class="btn" target="_blank">Dodaj do Discorda</a>
@@ -98,8 +138,8 @@
 
     <footer>
         <p>&copy; 2026 MRR Music. Wszelkie prawa zastrzeżone.</p>
-        <div style="margin-top: 10px;">
-            <a href="tos.html">Warunki Korzystania</a> | 
+        <div class="footer-links">
+            <a href="tos.html">Warunki Korzystania</a>
             <a href="privacy.html">Polityka Prywatności</a>
         </div>
     </footer>
